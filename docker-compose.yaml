@@ -1,0 +1,12 @@
+# version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - 8080:8080
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    command: tunnel --no-autoupdate run --token eyJhIjoiZTI5MTY5MGI4ZTU1ZTNhNzM0MTdhNTJjM2I3NGQwZGEiLCJ0IjoiNzdiY2IwZTktNzA1Ni00NjUxLWE0OTQtNTUzMzg5MmRhNzI0IiwicyI6IllqZ3dZV0k0WVdNdFltVTRPUzAwWm1abUxXSTVabVl0TUdNelpqQmtZV1UxWmpaaiJ9
+    restart: unless-stopped
